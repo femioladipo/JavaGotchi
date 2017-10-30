@@ -46,11 +46,11 @@ public class Creature {
         return name;
     }
 
-    public void checkStatus() {
+    public String checkStatus() {
         String status = null;
 
         if (fullness <= 0 || happiness <= 0 || energy <= 0) {
-            System.out.println("Oh no? " + getName() + " has died. You're a bad owner.");
+            status += "Oh no? " + getName() + " has died. You're a bad owner.";
             System.exit(0);
         }
 
@@ -58,11 +58,12 @@ public class Creature {
             status += "Oh, " + getName() + " is feeling sad!";
         }
         if (happiness <= 6) {
-            status += "\n Hmm, " + getName() + " is really tired!";
+            status += "\nHmm, " + getName() + " is really tired!";
         }
         if (energy <= 6) {
-            status += "\n Whoops, " + getName() + " is really hungry!";
+            status += "\nWhoops, " + getName() + " is really hungry!";
         }
-        System.out.println(status);
+
+        return status;
     }
 }
